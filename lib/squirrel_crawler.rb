@@ -1,0 +1,3 @@
+module SquirrelCrawler
+  # Your code goes here...
+end
