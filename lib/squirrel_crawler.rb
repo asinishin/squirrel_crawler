@@ -9,6 +9,8 @@ module SquirrelCrawler
   class Worker
 
     def go
+      FileUtils.rm_rf(Dir.glob(LegoK::BASE_PHOTOS + '*')) # Cleanup all previous photos
+ 
       Lego::Api.login
 
       last_listing_id = Lego::Api.last_id('kj')
