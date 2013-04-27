@@ -18,8 +18,8 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
-  s.add_development_dependency "rake"
+#  s.add_development_dependency "rake"
 
-  s.add_runtime_dependency     "lego",   :git => 'git://github.com/asinishin/lego.git'
-  s.add_runtime_dependency     "lego_k", :git => 'git://github.com/asinishin/lego_k.git'
+#  s.add_runtime_dependency     "lego",   :git => 'git://github.com/asinishin/lego.git'
+#  s.add_runtime_dependency     "lego_k", :git => 'git://github.com/asinishin/lego_k.git'
 end

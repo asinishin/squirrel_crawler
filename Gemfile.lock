@@ -1,0 +1,50 @@
+GIT
+  remote: git://github.com/asinishin/lego.git
+  revision: dddf92594ad1db89224f0708a89d1be880ba4b1c
+  ref: dddf92594ad1db89224f0708a89d1be880ba4b1c
+  specs:
+    lego (0.0.2)
+      rest-client
+
+GIT
+  remote: git://github.com/asinishin/lego_k.git
+  revision: 3f92d05ee5ac586979c4aca373d60685cc66eb7f
+  ref: 3f92d05ee5ac586979c4aca373d60685cc66eb7f
+  specs:
+    lego_k (0.0.3)
+      mechanize (~> 2.6.0)
+      nokogiri
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    domain_name (0.5.11)
+      unf (>= 0.0.5, < 1.0.0)
+    mechanize (2.6.0)
+      domain_name (~> 0.5, >= 0.5.1)
+      mime-types (~> 1.17, >= 1.17.2)
+      net-http-digest_auth (~> 1.1, >= 1.1.1)
+      net-http-persistent (~> 2.5, >= 2.5.2)
+      nokogiri (~> 1.4)
+      ntlm-http (~> 0.1, >= 0.1.1)
+      webrobots (>= 0.0.9, < 0.2)
+    mime-types (1.23)
+    net-http-digest_auth (1.3)
+    net-http-persistent (2.8)
+    nokogiri (1.5.9)
+    ntlm-http (0.1.1)
+    rake (10.0.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    unf (0.1.1)
+      unf_ext
+    unf_ext (0.0.6)
+    webrobots (0.1.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  lego!
+  lego_k!
+  rake
