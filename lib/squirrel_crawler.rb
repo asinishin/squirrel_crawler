@@ -34,7 +34,7 @@ module SquirrelCrawler
 
 	  result_listing = Lego::Api.upload_listing(listing, address)
 	  if result_listing
-	    Dir.glob('photos/*') do |fname|
+	    Dir.glob("photos/p#{listing_id}*.jpg") do |fname|
 	      Lego::Api.upload_photo(result_listing, fname)
 	    end
 	  end
