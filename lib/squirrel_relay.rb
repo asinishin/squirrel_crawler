@@ -8,6 +8,9 @@ module SquirrelRelay
   class Worker
 
     def go
+      log = Logger.new(STDOUT)
+      log.level = Logger::INFO
+    
       FileUtils.rm_rf(Dir.glob(Lego::BASE_PHOTOS + '*')) # Cleanup all previous photos
  
       @receiver = LegoReceiver::Api.instance
@@ -44,11 +47,12 @@ module SquirrelRelay
 	end
 
         @relay.change_owner(listing[:listing][:id])
-	puts "Processed listing: " + listing[:listing][:source_id]
+	log.info("Processed listing: " + listing[:listing][:source_id])
       end
 
       @receiver.logout
       @relay.logout
+      log.info("Relay complete!")
     end
 
   end

@@ -9,6 +9,9 @@ module SquirrelCrawler
   class Worker
 
     def go
+      log = Logger.new(STDOUT)
+      log.level = Logger::INFO
+    
       FileUtils.rm_rf(Dir.glob(LegoK::BASE_PHOTOS + '*')) # Cleanup all previous photos
  
       @receiver = LegoReceiver::Api.instance
@@ -16,7 +19,7 @@ module SquirrelCrawler
 
       last_listing_id = @receiver.last_id('kj')
 
-      puts "Starting from: " + last_listing_id
+      log.info("Starting from: " + last_listing_id)
 
       @source = LegoK::Api.instance
       page = @source.first_page
@@ -40,18 +43,19 @@ module SquirrelCrawler
 	      @receiver.upload_photo(result_listing, fname)
 	    end
 	  end
-	  puts "Processed listing: " + listing_id
+	  log.info("Processed listing: " + listing_id)
 	end
 
 	page = @source.next_page(page)
 	if page.nil?
 	  break
 	else
-	  puts "New page!"
+	  log.info("New page!")
 	end
       end
-
+      
       @receiver.logout
+      log.info("Crawling complete!")
     end
 
   end
