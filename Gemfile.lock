@@ -1,15 +1,16 @@
 GIT
   remote: git://github.com/asinishin/lego.git
-  revision: dddf92594ad1db89224f0708a89d1be880ba4b1c
-  ref: dddf92594ad1db89224f0708a89d1be880ba4b1c
+  revision: 28c8ce8b901ec8e5cc0687b2e11330d68e0e2d86
+  ref: 28c8ce8b901ec8e5cc0687b2e11330d68e0e2d86
   specs:
-    lego (0.0.2)
+    lego (0.0.3)
+      mechanize (~> 2.6.0)
       rest-client
 
 GIT
   remote: git://github.com/asinishin/lego_k.git
-  revision: 3f92d05ee5ac586979c4aca373d60685cc66eb7f
-  ref: 3f92d05ee5ac586979c4aca373d60685cc66eb7f
+  revision: 6e23e00db336dd37ae2a6ee53214f894bd466984
+  ref: 6e23e00db336dd37ae2a6ee53214f894bd466984
   specs:
     lego_k (0.0.3)
       mechanize (~> 2.6.0)

@@ -8,7 +8,7 @@ module SquirrelRelay
   class Worker
 
     def go
-      FileUtils.rm_rf(Dir.glob(LegoK::BASE_PHOTOS + '*')) # Cleanup all previous photos
+      FileUtils.rm_rf(Dir.glob(Lego::BASE_PHOTOS + '*')) # Cleanup all previous photos
  
       @receiver = LegoReceiver::Api.instance
       @receiver.login
@@ -25,24 +25,26 @@ module SquirrelRelay
  
         @relay.load_photos(listing[:photos])
 
-        result_listing = @receiver.upload_listing(listing[:listing], address[:address])
+        result_listing = @receiver.upload_listing(listing[:listing], listing[:address])
 	if result_listing
 	  listing[:photos].each do |photo|
-	    @receiver.upload_photo(result_listing, "photos/" + photo[:file])
+	    @receiver.upload_photo(result_listing, Lego::BASE_PHOTOS + photo[:file])
 	  end
 
-	  @receiver.upload_features_and_cautions(
-	    result_listing,
-	    {
-	      indoor_features:  listing[:indoor_features],
-	      outdoor_features: listing[:outdoor_features],
-	      indoor_cautions:  listing[:indoor_cautions],
-	      outdoor_cautions: listing[:outdoor_cautions]
-	    }
-	  )
+	  is_indoor = listing[:listing][:space_type_id] == 1
+          if is_indoor
+	    fts = listing[:indoor_features]
+	    cts = listing[:indoor_cautions]
+	  else
+	    fts = listing[:outdoor_features]
+	    cts = listing[:outdoor_cautions]
+	  end
+
+	  @receiver.upload_features_and_cautions(result_listing, is_indoor, fts, cts)
 	end
 
-	puts "Processed listing: " + listing[:listing][:soucre_id]
+        @relay.change_owner(listing[:listing][:id])
+	puts "Processed listing: " + listing[:listing][:source_id]
       end
 
       @receiver.logout
