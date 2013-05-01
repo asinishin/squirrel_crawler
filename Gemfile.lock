@@ -1,7 +1,7 @@
 GIT
   remote: git://github.com/asinishin/lego.git
-  revision: 28c8ce8b901ec8e5cc0687b2e11330d68e0e2d86
-  ref: 28c8ce8b901ec8e5cc0687b2e11330d68e0e2d86
+  revision: 7278c5ed71e5d52c6dc57297a01635286564f564
+  ref: 7278c5ed71e5d52c6dc57297a01635286564f564
   specs:
     lego (0.0.3)
       mechanize (~> 2.6.0)
