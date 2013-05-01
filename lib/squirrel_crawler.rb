@@ -3,6 +3,7 @@ require 'bundler/setup'
 
 require 'lego'
 require 'lego_k'
+require 'logger'
 
 module SquirrelCrawler
 

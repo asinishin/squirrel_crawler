@@ -2,6 +2,7 @@ require 'rubygems'
 require 'bundler/setup'
 
 require 'lego'
+require 'logger'
 
 module SquirrelRelay
 
