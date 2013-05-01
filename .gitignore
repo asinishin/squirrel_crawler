@@ -17,3 +17,6 @@
 # Vim temp files
 *.swp
 *.swo
+
+# Log files
+*.log
